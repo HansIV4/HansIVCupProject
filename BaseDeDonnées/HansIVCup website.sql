@@ -330,17 +330,17 @@ SET IDENTITY_INSERT [tblRegionTeam] OFF
 		
 
 SET IDENTITY_INSERT [tblTeam] ON									
-insert into tblTeam	(	idTeam	,	nomTeam		,		idRegion	)	VALUES
-					(	1		,	'Team1'		,		1			)	,
-					(	2		,	'team2'		,		2			)	,
-					(	3		,	'team3'		,		1			)	,
-					(	4		,	'team4'		,		2			)	,
-					(	5		,	'team5'		,		1			)	,
-					(	6		,	'team6'		,		2			)	,
-					(	7		,	'team7'		,		1			)	,
-					(	8		,	'team8'		,		2			)	,
-					(	9		,	'team9'		,		1			)	,
-					(	10		,	'team10'	,		2			)
+insert into tblTeam	(	idTeam	,	nomTeam			,		idRegion	)	VALUES
+					(	1		,	'Beonalac'		,		1			)	,
+					(	2		,	'Bobbeadve'		,		2			)	,
+					(	3		,	'Chardust'		,		1			)	,
+					(	4		,	'Gurunthrey'	,		2			)	,
+					(	5		,	'GoldWeaver'	,		1			)	,
+					(	6		,	'Kathaired '	,		2			)	
+					--(	7		,	'team7'		,		1			)	,
+					--(	8		,	'team8'		,		2			)	,
+					--(	9		,	'team9'		,		1			)	,
+					--(	10		,	'team10'	,		2			)
 SET IDENTITY_INSERT [tblTeam] OFF
 
 SET IDENTITY_INSERT [tblRoleMembreTeam] ON
@@ -396,3 +396,15 @@ insert into tblJoueurTeam	(	idMembreTeam	,	idTeam	,	idJoueur	,	idRoleTeam	)	VALU
 							(	41				,	6		,	41			,	3			)	,
 							(	42				,	6		,	42			,	3			)	
 SET IDENTITY_INSERT [tblJoueurTeam] OFF
+
+SET IDENTITY_INSERT tblSaison ON
+insert into tblSaison	(	idSaison	,	NomSaison	,	dateDebutSaison	,	dateFinSaison	)	VALUES
+							(	11			,	'Grim Sky'	,	'2018-09-04'	,	'2018-01-09'	)
+SET IDENTITY_INSERT tblSaison OFF
+
+SET IDENTITY_INSERT tblTeamParticipeSaison ON
+insert into tblTeamParticipeSaison	(	idInscriptionSaison	,	idTeam	,	idSaison	,	ptsTeam	,	inscriptionActive	)	VALUES
+									(	1							,	1		,	11			,	1241	,	1					)	,
+									(	2							,	2		,	11			,	1390	,	1					)	,
+									(	3							,	3		,	11			,	1189	,	1					)	,
+									(	4							,	4		,	11			,	672		,	0					)	
