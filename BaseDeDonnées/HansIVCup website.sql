@@ -137,8 +137,8 @@ DROP TABLE tblcartes
 GO
 CREATE TABLE tblcartes
 (
-	idCarte		INT		NOT NULL IDENTITY(1,1) UNIQUE,
-	nomCarte	INT		NOT NULL,
+	idCarte		INT					NOT NULL IDENTITY(1,1) UNIQUE,
+	nomCarte	VARCHAR (50)		NOT NULL,
 	PRIMARY KEY (idCarte)
 )
 
@@ -198,8 +198,8 @@ DROP TABLE tblCauseFinBo3
 GO
 CREATE TABLE tblCauseFinBo3
 (
-	idCauseFinBo3			INT		NOT NULL	IDENTITY(1,1) UNIQUE,
-	causeFinBo3				varchar	NOT NULL	UNIQUE, 
+	idCauseFinBo3			INT				NOT NULL	IDENTITY(1,1) UNIQUE,
+	causeFinBo3				varchar	(50)	NOT NULL	UNIQUE, 
 
 	PRIMARY KEY (idCauseFinBo3)
 )
@@ -337,10 +337,7 @@ insert into tblTeam	(	idTeam	,	nomTeam			,		idRegion	)	VALUES
 					(	4		,	'Gurunthrey'	,		2			)	,
 					(	5		,	'GoldWeaver'	,		1			)	,
 					(	6		,	'Kathaired '	,		2			)	
-					--(	7		,	'team7'		,		1			)	,
-					--(	8		,	'team8'		,		2			)	,
-					--(	9		,	'team9'		,		1			)	,
-					--(	10		,	'team10'	,		2			)
+
 SET IDENTITY_INSERT [tblTeam] OFF
 
 SET IDENTITY_INSERT [tblRoleMembreTeam] ON
@@ -408,3 +405,49 @@ insert into tblTeamParticipeSaison	(	idInscriptionSaison	,	idTeam	,	idSaison	,	p
 									(	2							,	2		,	11			,	1390	,	1					)	,
 									(	3							,	3		,	11			,	1189	,	1					)	,
 									(	4							,	4		,	11			,	672		,	0					)	
+SET IDENTITY_INSERT tblTeamParticipeSaison OFF
+
+
+SET IDENTITY_INSERT tblcartes ON
+insert into tblcartes	(	idCarte	,	nomCarte	)	VALUES
+						(	1		,	'Banque'	)	,
+						(	2		,	'Frontière'	)	,
+						(	3		,	'Clubhouse'	)	,
+						(	4		,	'Consulat'	)	,
+						(	5		,	'Littoral'	)	,
+						(	6		,	'Oregon'	)	,
+						(	7		,	'Villa'		)
+SET IDENTITY_INSERT tblcartes OFF
+
+SET IDENTITY_INSERT tblCauseFinBo3 ON
+insert into tblCauseFinBo3	(	idCauseFinBo3	,	causeFinBo3				)	VALUES
+							(	1				,	'Victoire 2-0'			)	,
+							(	2				,	'Victoire 2-1'			)	,
+							(	3				,	'Victoire par forfait'	)	,
+							(	4				,	'Égalité 2-2'			)
+SET IDENTITY_INSERT tblCauseFinBo3 OFF
+
+SET IDENTITY_INSERT tblBestOfTrois ON
+Insert into tblBestOfTrois	(	idBO3	,	dateHeureDebutBO3		,	idCauseFinBO3	,	idSaison	)	VALUES
+							(	1		,	'2018-10-15 12:00:00'	,	1				,	11			)
+SET IDENTITY_INSERT tblBestOfTrois OFF
+
+SET IDENTITY_INSERT tblEquipeParticipeBO3 ON
+Insert into tblEquipeParticipeBO3	(	idParticipationBo3	,	idBo3	,	idTeam	)	VALUES
+									(	1					,	1		,	1		)	,
+									(	2					,	1		,	2		)
+SET IDENTITY_INSERT tblEquipeParticipeBO3 OFF
+
+SET IDENTITY_INSERT tblJoueurTeamParticipeBO3 ON
+Insert into tblJoueurTeamParticipeBO3	(	idParticipant	,	idJoueur	,	idTeam	,	idBO3	,	participationConfirmee	)	VALUES
+										(	1				,	1			,	1		,	1		,	1						)	,
+										(	2				,	2			,	1		,	1		,	1						)	,
+										(	3				,	3			,	1		,	1		,	1						)	,
+										(	4				,	4			,	1		,	1		,	1						)	,
+										(	5				,	5			,	1		,	1		,	1						)	,
+										(	6				,	8			,	2		,	1		,	1						)	,	
+										(	7				,	9			,	2		,	1		,	1						)	,
+										(	8				,	10			,	2		,	1		,	1						)	,
+										(	9				,	11			,	2		,	1		,	1						)	,	
+										(	10				,	12			,	2		,	1		,	1						)
+SET IDENTITY_INSERT tblJoueurTeamParticipeBO3 OFF
