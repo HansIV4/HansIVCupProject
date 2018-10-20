@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBHansIVCupCompetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblBestOfTrois">
+    <Key>
+      <PropertyRef Name="idBO3" />
+    </Key>
+    <Property Name="idBO3" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dateHeureDebutBO3" Type="datetime" Nullable="false" />
+    <Property Name="idCauseFinBO3" Type="int" />
+    <Property Name="idSaison" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblcartes">
+    <Key>
+      <PropertyRef Name="idCarte" />
+    </Key>
+    <Property Name="idCarte" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomCarte" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblCauseFinBo3">
+    <Key>
+      <PropertyRef Name="idCauseFinBo3" />
+    </Key>
+    <Property Name="idCauseFinBo3" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="causeFinBo3" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblEquipeParticipeBO3">
+    <Key>
+      <PropertyRef Name="idParticipationBo3" />
+    </Key>
+    <Property Name="idParticipationBo3" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idBo3" Type="int" Nullable="false" />
+    <Property Name="idTeam" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblJoueur">
+    <Key>
+      <PropertyRef Name="idJoueur" />
+    </Key>
+    <Property Name="idJoueur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idDiscord" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="pseudoUplay" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="pseudoDiscord" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="noPseudoDiscord" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblJoueurTeam">
+    <Key>
+      <PropertyRef Name="idMembreTeam" />
+    </Key>
+    <Property Name="idMembreTeam" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idTeam" Type="int" Nullable="false" />
+    <Property Name="idJoueur" Type="int" Nullable="false" />
+    <Property Name="idRoleTeam" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblJoueurTeamParticipeBO3">
+    <Key>
+      <PropertyRef Name="idParticipant" />
+    </Key>
+    <Property Name="idParticipant" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idJoueur" Type="int" Nullable="false" />
+    <Property Name="idTeam" Type="int" Nullable="false" />
+    <Property Name="idBO3" Type="int" Nullable="false" />
+    <Property Name="participationConfirmee" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblPartie">
+    <Key>
+      <PropertyRef Name="idPartie" />
+    </Key>
+    <Property Name="idPartie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idMap" Type="int" Nullable="false" />
+    <Property Name="devaitEtreJouee" Type="int" />
+    <Property Name="idBO3" Type="int" />
+  </EntityType>
+  <EntityType Name="tblRegionTeam">
+    <Key>
+      <PropertyRef Name="idRegion" />
+    </Key>
+    <Property Name="idRegion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomRegion" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblRoleMembreTeam">
+    <Key>
+      <PropertyRef Name="idRole" />
+    </Key>
+    <Property Name="idRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomRole" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblSaison">
+    <Key>
+      <PropertyRef Name="idSaison" />
+    </Key>
+    <Property Name="idSaison" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomSaison" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="dateDebutSaison" Type="date" Nullable="false" />
+    <Property Name="dateFinSaison" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblTeam">
+    <Key>
+      <PropertyRef Name="idTeam" />
+    </Key>
+    <Property Name="idTeam" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomTeam" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idRegion" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblTeamParticipePartie">
+    <Key>
+      <PropertyRef Name="idParticipationTeamPartie" />
+    </Key>
+    <Property Name="idParticipationTeamPartie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idPartie" Type="int" Nullable="false" />
+    <Property Name="idTeam" Type="int" Nullable="false" />
+    <Property Name="nbrePts" Type="int" />
+  </EntityType>
+  <EntityType Name="tblTeamParticipeSaison">
+    <Key>
+      <PropertyRef Name="idInscriptionSaison" />
+    </Key>
+    <Property Name="idInscriptionSaison" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idTeam" Type="int" Nullable="false" />
+    <Property Name="idSaison" Type="int" Nullable="false" />
+    <Property Name="ptsTeam" Type="int" Nullable="false" />
+    <Property Name="inscriptionActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__tblBestOf__idCau__66603565">
+    <End Role="tblCauseFinBo3" Type="Self.tblCauseFinBo3" Multiplicity="0..1" />
+    <End Role="tblBestOfTrois" Type="Self.tblBestOfTrois" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCauseFinBo3">
+        <PropertyRef Name="idCauseFinBo3" />
+      </Principal>
+      <Dependent Role="tblBestOfTrois">
+        <PropertyRef Name="idCauseFinBO3" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblBestOf__idSai__656C112C">
+    <End Role="tblSaison" Type="Self.tblSaison" Multiplicity="1" />
+    <End Role="tblBestOfTrois" Type="Self.tblBestOfTrois" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSaison">
+        <PropertyRef Name="idSaison" />
+      </Principal>
+      <Dependent Role="tblBestOfTrois">
+        <PropertyRef Name="idSaison" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblEquipe__idBo3__68487DD7">
+    <End Role="tblBestOfTrois" Type="Self.tblBestOfTrois" Multiplicity="1" />
+    <End Role="tblEquipeParticipeBO3" Type="Self.tblEquipeParticipeBO3" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBestOfTrois">
+        <PropertyRef Name="idBO3" />
+      </Principal>
+      <Dependent Role="tblEquipeParticipeBO3">
+        <PropertyRef Name="idBo3" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblEquipe__idTea__693CA210">
+    <End Role="tblTeam" Type="Self.tblTeam" Multiplicity="1" />
+    <End Role="tblEquipeParticipeBO3" Type="Self.tblEquipeParticipeBO3" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblTeam">
+        <PropertyRef Name="idTeam" />
+      </Principal>
+      <Dependent Role="tblEquipeParticipeBO3">
+        <PropertyRef Name="idTeam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblJoueur__idBO3__6D0D32F4">
+    <End Role="tblBestOfTrois" Type="Self.tblBestOfTrois" Multiplicity="1" />
+    <End Role="tblJoueurTeamParticipeBO3" Type="Self.tblJoueurTeamParticipeBO3" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBestOfTrois">
+        <PropertyRef Name="idBO3" />
+      </Principal>
+      <Dependent Role="tblJoueurTeamParticipeBO3">
+        <PropertyRef Name="idBO3" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblJoueur__idJou__619B8048">
+    <End Role="tblJoueur" Type="Self.tblJoueur" Multiplicity="1" />
+    <End Role="tblJoueurTeam" Type="Self.tblJoueurTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblJoueur">
+        <PropertyRef Name="idJoueur" />
+      </Principal>
+      <Dependent Role="tblJoueurTeam">
+        <PropertyRef Name="idJoueur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblJoueur__idJou__6B24EA82">
+    <End Role="tblJoueur" Type="Self.tblJoueur" Multiplicity="1" />
+    <End Role="tblJoueurTeamParticipeBO3" Type="Self.tblJoueurTeamParticipeBO3" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblJoueur">
+        <PropertyRef Name="idJoueur" />
+      </Principal>
+      <Dependent Role="tblJoueurTeamParticipeBO3">
+        <PropertyRef Name="idJoueur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblJoueur__idRol__628FA481">
+    <End Role="tblRoleMembreTeam" Type="Self.tblRoleMembreTeam" Multiplicity="1" />
+    <End Role="tblJoueurTeam" Type="Self.tblJoueurTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRoleMembreTeam">
+        <PropertyRef Name="idRole" />
+      </Principal>
+      <Dependent Role="tblJoueurTeam">
+        <PropertyRef Name="idRoleTeam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblJoueur__idTea__60A75C0F">
+    <End Role="tblTeam" Type="Self.tblTeam" Multiplicity="1" />
+    <End Role="tblJoueurTeam" Type="Self.tblJoueurTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblTeam">
+        <PropertyRef Name="idTeam" />
+      </Principal>
+      <Dependent Role="tblJoueurTeam">
+        <PropertyRef Name="idTeam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblJoueur__idTea__6C190EBB">
+    <End Role="tblTeam" Type="Self.tblTeam" Multiplicity="1" />
+    <End Role="tblJoueurTeamParticipeBO3" Type="Self.tblJoueurTeamParticipeBO3" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblTeam">
+        <PropertyRef Name="idTeam" />
+      </Principal>
+      <Dependent Role="tblJoueurTeamParticipeBO3">
+        <PropertyRef Name="idTeam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblPartie__idBO3__6A30C649">
+    <End Role="tblBestOfTrois" Type="Self.tblBestOfTrois" Multiplicity="0..1" />
+    <End Role="tblPartie" Type="Self.tblPartie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBestOfTrois">
+        <PropertyRef Name="idBO3" />
+      </Principal>
+      <Dependent Role="tblPartie">
+        <PropertyRef Name="idBO3" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblPartie__idMap__6754599E">
+    <End Role="tblcartes" Type="Self.tblcartes" Multiplicity="1" />
+    <End Role="tblPartie" Type="Self.tblPartie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblcartes">
+        <PropertyRef Name="idCarte" />
+      </Principal>
+      <Dependent Role="tblPartie">
+        <PropertyRef Name="idMap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblTeam__idRegio__5FB337D6">
+    <End Role="tblRegionTeam" Type="Self.tblRegionTeam" Multiplicity="1" />
+    <End Role="tblTeam" Type="Self.tblTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRegionTeam">
+        <PropertyRef Name="idRegion" />
+      </Principal>
+      <Dependent Role="tblTeam">
+        <PropertyRef Name="idRegion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblTeamPa__idPar__6E01572D">
+    <End Role="tblPartie" Type="Self.tblPartie" Multiplicity="1" />
+    <End Role="tblTeamParticipePartie" Type="Self.tblTeamParticipePartie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPartie">
+        <PropertyRef Name="idPartie" />
+      </Principal>
+      <Dependent Role="tblTeamParticipePartie">
+        <PropertyRef Name="idPartie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblTeamPa__idSai__6383C8BA">
+    <End Role="tblSaison" Type="Self.tblSaison" Multiplicity="1" />
+    <End Role="tblTeamParticipeSaison" Type="Self.tblTeamParticipeSaison" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSaison">
+        <PropertyRef Name="idSaison" />
+      </Principal>
+      <Dependent Role="tblTeamParticipeSaison">
+        <PropertyRef Name="idSaison" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblTeamPa__idTea__6477ECF3">
+    <End Role="tblTeam" Type="Self.tblTeam" Multiplicity="1" />
+    <End Role="tblTeamParticipeSaison" Type="Self.tblTeamParticipeSaison" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblTeam">
+        <PropertyRef Name="idTeam" />
+      </Principal>
+      <Dependent Role="tblTeamParticipeSaison">
+        <PropertyRef Name="idTeam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblTeamPa__idTea__6EF57B66">
+    <End Role="tblTeam" Type="Self.tblTeam" Multiplicity="1" />
+    <End Role="tblTeamParticipePartie" Type="Self.tblTeamParticipePartie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblTeam">
+        <PropertyRef Name="idTeam" />
+      </Principal>
+      <Dependent Role="tblTeamParticipePartie">
+        <PropertyRef Name="idTeam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBHansIVCupCompetModelStoreContainer">
+    <EntitySet Name="tblBestOfTrois" EntityType="Self.tblBestOfTrois" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblcartes" EntityType="Self.tblcartes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCauseFinBo3" EntityType="Self.tblCauseFinBo3" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblEquipeParticipeBO3" EntityType="Self.tblEquipeParticipeBO3" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblJoueur" EntityType="Self.tblJoueur" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblJoueurTeam" EntityType="Self.tblJoueurTeam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblJoueurTeamParticipeBO3" EntityType="Self.tblJoueurTeamParticipeBO3" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartie" EntityType="Self.tblPartie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblRegionTeam" EntityType="Self.tblRegionTeam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblRoleMembreTeam" EntityType="Self.tblRoleMembreTeam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSaison" EntityType="Self.tblSaison" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblTeam" EntityType="Self.tblTeam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblTeamParticipePartie" EntityType="Self.tblTeamParticipePartie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblTeamParticipeSaison" EntityType="Self.tblTeamParticipeSaison" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tblBestOf__idCau__66603565" Association="Self.FK__tblBestOf__idCau__66603565">
+      <End Role="tblCauseFinBo3" EntitySet="tblCauseFinBo3" />
+      <End Role="tblBestOfTrois" EntitySet="tblBestOfTrois" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblBestOf__idSai__656C112C" Association="Self.FK__tblBestOf__idSai__656C112C">
+      <End Role="tblSaison" EntitySet="tblSaison" />
+      <End Role="tblBestOfTrois" EntitySet="tblBestOfTrois" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblEquipe__idBo3__68487DD7" Association="Self.FK__tblEquipe__idBo3__68487DD7">
+      <End Role="tblBestOfTrois" EntitySet="tblBestOfTrois" />
+      <End Role="tblEquipeParticipeBO3" EntitySet="tblEquipeParticipeBO3" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblEquipe__idTea__693CA210" Association="Self.FK__tblEquipe__idTea__693CA210">
+      <End Role="tblTeam" EntitySet="tblTeam" />
+      <End Role="tblEquipeParticipeBO3" EntitySet="tblEquipeParticipeBO3" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblJoueur__idBO3__6D0D32F4" Association="Self.FK__tblJoueur__idBO3__6D0D32F4">
+      <End Role="tblBestOfTrois" EntitySet="tblBestOfTrois" />
+      <End Role="tblJoueurTeamParticipeBO3" EntitySet="tblJoueurTeamParticipeBO3" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblJoueur__idJou__619B8048" Association="Self.FK__tblJoueur__idJou__619B8048">
+      <End Role="tblJoueur" EntitySet="tblJoueur" />
+      <End Role="tblJoueurTeam" EntitySet="tblJoueurTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblJoueur__idJou__6B24EA82" Association="Self.FK__tblJoueur__idJou__6B24EA82">
+      <End Role="tblJoueur" EntitySet="tblJoueur" />
+      <End Role="tblJoueurTeamParticipeBO3" EntitySet="tblJoueurTeamParticipeBO3" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblJoueur__idRol__628FA481" Association="Self.FK__tblJoueur__idRol__628FA481">
+      <End Role="tblRoleMembreTeam" EntitySet="tblRoleMembreTeam" />
+      <End Role="tblJoueurTeam" EntitySet="tblJoueurTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblJoueur__idTea__60A75C0F" Association="Self.FK__tblJoueur__idTea__60A75C0F">
+      <End Role="tblTeam" EntitySet="tblTeam" />
+      <End Role="tblJoueurTeam" EntitySet="tblJoueurTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblJoueur__idTea__6C190EBB" Association="Self.FK__tblJoueur__idTea__6C190EBB">
+      <End Role="tblTeam" EntitySet="tblTeam" />
+      <End Role="tblJoueurTeamParticipeBO3" EntitySet="tblJoueurTeamParticipeBO3" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblPartie__idBO3__6A30C649" Association="Self.FK__tblPartie__idBO3__6A30C649">
+      <End Role="tblBestOfTrois" EntitySet="tblBestOfTrois" />
+      <End Role="tblPartie" EntitySet="tblPartie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblPartie__idMap__6754599E" Association="Self.FK__tblPartie__idMap__6754599E">
+      <End Role="tblcartes" EntitySet="tblcartes" />
+      <End Role="tblPartie" EntitySet="tblPartie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblTeam__idRegio__5FB337D6" Association="Self.FK__tblTeam__idRegio__5FB337D6">
+      <End Role="tblRegionTeam" EntitySet="tblRegionTeam" />
+      <End Role="tblTeam" EntitySet="tblTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblTeamPa__idPar__6E01572D" Association="Self.FK__tblTeamPa__idPar__6E01572D">
+      <End Role="tblPartie" EntitySet="tblPartie" />
+      <End Role="tblTeamParticipePartie" EntitySet="tblTeamParticipePartie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblTeamPa__idSai__6383C8BA" Association="Self.FK__tblTeamPa__idSai__6383C8BA">
+      <End Role="tblSaison" EntitySet="tblSaison" />
+      <End Role="tblTeamParticipeSaison" EntitySet="tblTeamParticipeSaison" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblTeamPa__idTea__6477ECF3" Association="Self.FK__tblTeamPa__idTea__6477ECF3">
+      <End Role="tblTeam" EntitySet="tblTeam" />
+      <End Role="tblTeamParticipeSaison" EntitySet="tblTeamParticipeSaison" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblTeamPa__idTea__6EF57B66" Association="Self.FK__tblTeamPa__idTea__6EF57B66">
+      <End Role="tblTeam" EntitySet="tblTeam" />
+      <End Role="tblTeamParticipePartie" EntitySet="tblTeamParticipePartie" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

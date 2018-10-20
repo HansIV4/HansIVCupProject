@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBHansIVCupCompetModelStoreContainer" CdmEntityContainer="DBHansIVCupCompetEntities">
+    <EntitySetMapping Name="tblBestOfTrois">
+      <EntityTypeMapping TypeName="DBHansIVCupCompetModel.tblBestOfTrois">
+        <MappingFragment StoreEntitySet="tblBestOfTrois">
+          <ScalarProperty Name="idBO3" ColumnName="idBO3" />
+          <ScalarProperty Name="dateHeureDebutBO3" ColumnName="dateHeureDebutBO3" />
+          <ScalarProperty Name="idCauseFinBO3" ColumnName="idCauseFinBO3" />
+          <ScalarProperty Name="idSaison" ColumnName="idSaison" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblcartes">
+      <EntityTypeMapping TypeName="DBHansIVCupCompetModel.tblcartes">
+        <MappingFragment StoreEntitySet="tblcartes">
+          <ScalarProperty Name="idCarte" ColumnName="idCarte" />
+          <ScalarProperty Name="nomCarte" ColumnName="nomCarte" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCauseFinBo3">
+      <EntityTypeMapping TypeName="DBHansIVCupCompetModel.tblCauseFinBo3">
+        <MappingFragment StoreEntitySet="tblCauseFinBo3">
+          <ScalarProperty Name="idCauseFinBo3" ColumnName="idCauseFinBo3" />
+          <ScalarProperty Name="causeFinBo3" ColumnName="causeFinBo3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEquipeParticipeBO3">
+      <EntityTypeMapping TypeName="DBHansIVCupCompetModel.tblEquipeParticipeBO3">
+        <MappingFragment StoreEntitySet="tblEquipeParticipeBO3">
+          <ScalarProperty Name="idParticipationBo3" ColumnName="idParticipationBo3" />
+          <ScalarProperty Name="idBo3" ColumnName="idBo3" />
+          <ScalarProperty Name="idTeam" ColumnName="idTeam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblJoueur">
+      <EntityTypeMapping TypeName="DBHansIVCupCompetModel.tblJoueur">
+        <MappingFragment StoreEntitySet="tblJoueur">
+          <ScalarProperty Name="idJoueur" ColumnName="idJoueur" />
+          <ScalarProperty Name="idDiscord" ColumnName="idDiscord" />
+          <ScalarProperty Name="pseudoUplay" ColumnName="pseudoUplay" />
+          <ScalarProperty Name="pseudoDiscord" ColumnName="pseudoDiscord" />
+          <ScalarProperty Name="noPseudoDiscord" ColumnName="noPseudoDiscord" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblJoueurTeam">
+      <EntityTypeMapping TypeName="DBHansIVCupCompetModel.tblJoueurTeam">
+        <MappingFragment StoreEntitySet="tblJoueurTeam">
+          <ScalarProperty Name="idMembreTeam" ColumnName="idMembreTeam" />
+          <ScalarProperty Name="idTeam" ColumnName="idTeam" />
+          <ScalarProperty Name="idJoueur" ColumnName="idJoueur" />
+          <ScalarProperty Name="idRoleTeam" ColumnName="idRoleTeam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblJoueurTeamParticipeBO3">
+      <EntityTypeMapping TypeName="DBHansIVCupCompetModel.tblJoueurTeamParticipeBO3">
+        <MappingFragment StoreEntitySet="tblJoueurTeamParticipeBO3">
+          <ScalarProperty Name="idParticipant" ColumnName="idParticipant" />
+          <ScalarProperty Name="idJoueur" ColumnName="idJoueur" />
+          <ScalarProperty Name="idTeam" ColumnName="idTeam" />
+          <ScalarProperty Name="idBO3" ColumnName="idBO3" />
+          <ScalarProperty Name="participationConfirmee" ColumnName="participationConfirmee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPartie">
+      <EntityTypeMapping TypeName="DBHansIVCupCompetModel.tblPartie">
+        <MappingFragment StoreEntitySet="tblPartie">
+          <ScalarProperty Name="idPartie" ColumnName="idPartie" />
+          <ScalarProperty Name="idMap" ColumnName="idMap" />
+          <ScalarProperty Name="devaitEtreJouee" ColumnName="devaitEtreJouee" />
+          <ScalarProperty Name="idBO3" ColumnName="idBO3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRegionTeam">
+      <EntityTypeMapping TypeName="DBHansIVCupCompetModel.tblRegionTeam">
+        <MappingFragment StoreEntitySet="tblRegionTeam">
+          <ScalarProperty Name="idRegion" ColumnName="idRegion" />
+          <ScalarProperty Name="nomRegion" ColumnName="nomRegion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRoleMembreTeam">
+      <EntityTypeMapping TypeName="DBHansIVCupCompetModel.tblRoleMembreTeam">
+        <MappingFragment StoreEntitySet="tblRoleMembreTeam">
+          <ScalarProperty Name="idRole" ColumnName="idRole" />
+          <ScalarProperty Name="nomRole" ColumnName="nomRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSaison">
+      <EntityTypeMapping TypeName="DBHansIVCupCompetModel.tblSaison">
+        <MappingFragment StoreEntitySet="tblSaison">
+          <ScalarProperty Name="idSaison" ColumnName="idSaison" />
+          <ScalarProperty Name="NomSaison" ColumnName="NomSaison" />
+          <ScalarProperty Name="dateDebutSaison" ColumnName="dateDebutSaison" />
+          <ScalarProperty Name="dateFinSaison" ColumnName="dateFinSaison" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTeam">
+      <EntityTypeMapping TypeName="DBHansIVCupCompetModel.tblTeam">
+        <MappingFragment StoreEntitySet="tblTeam">
+          <ScalarProperty Name="idTeam" ColumnName="idTeam" />
+          <ScalarProperty Name="nomTeam" ColumnName="nomTeam" />
+          <ScalarProperty Name="idRegion" ColumnName="idRegion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTeamParticipePartie">
+      <EntityTypeMapping TypeName="DBHansIVCupCompetModel.tblTeamParticipePartie">
+        <MappingFragment StoreEntitySet="tblTeamParticipePartie">
+          <ScalarProperty Name="idParticipationTeamPartie" ColumnName="idParticipationTeamPartie" />
+          <ScalarProperty Name="idPartie" ColumnName="idPartie" />
+          <ScalarProperty Name="idTeam" ColumnName="idTeam" />
+          <ScalarProperty Name="nbrePts" ColumnName="nbrePts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTeamParticipeSaison">
+      <EntityTypeMapping TypeName="DBHansIVCupCompetModel.tblTeamParticipeSaison">
+        <MappingFragment StoreEntitySet="tblTeamParticipeSaison">
+          <ScalarProperty Name="idInscriptionSaison" ColumnName="idInscriptionSaison" />
+          <ScalarProperty Name="idTeam" ColumnName="idTeam" />
+          <ScalarProperty Name="idSaison" ColumnName="idSaison" />
+          <ScalarProperty Name="ptsTeam" ColumnName="ptsTeam" />
+          <ScalarProperty Name="inscriptionActive" ColumnName="inscriptionActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
